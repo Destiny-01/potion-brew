@@ -1,134 +1,73 @@
-# FHEVM React Template
+# Welcome to your Lovable project
 
-The FHEVM React Template is an ultra-minimal React project for building and running an FHEVM-enabled dApp.
-It works alongside the [fhevm-hardhat-template](https://github.com/zama-ai/fhevm-hardhat-template)
-and provides a simple development frontend for interacting with the `FHECounter.sol` contract.
+## Project info
 
-This template also illustrates how to run your FHEVM-dApp on both Sepolia as well as a local Hardhat Node (much faster).
+**URL**: https://lovable.dev/projects/8b74f058-3967-46d6-94fe-fb208bc214e2
 
-## Features
+## How can I edit this code?
 
-- **@zama-fhe/relayer-sdk**: Fully Homomorphic Encryption for Ethereum Virtual Machine
-- **React**: Modern UI framework for building interactive interfaces
-- **Next.js**: Next-generation frontend build tool
-- **Tailwind**: Utility-first CSS framework for rapid UI development
+There are several ways of editing your application.
 
-## Requirements
+**Use Lovable**
 
-- You need to have Metamask browser extension installed on your browser.
+Simply visit the [Lovable Project](https://lovable.dev/projects/8b74f058-3967-46d6-94fe-fb208bc214e2) and start prompting.
 
-## Local Hardhat Network (to add in MetaMask)
+Changes made via Lovable will be committed automatically to this repo.
 
-Follow the step-by-step guide in the [Hardhat + MetaMask](https://docs.metamask.io/wallet/how-to/run-devnet/) documentation to set up your local devnet using Hardhat and MetaMask.
+**Use your preferred IDE**
 
-- Name: Hardhat
-- RPC URL: http://127.0.0.1:8545
-- Chain ID: 31337
-- Currency symbol: ETH
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-## Install
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-1. Clone this repository.
-2. From the repo root, run:
+Follow these steps:
 
 ```sh
-npm install
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
 ```
 
-## Quickstart
+**Edit a file directly in GitHub**
 
-1. Setup your hardhat environment variables:
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-Follow the detailed instructions in the [FHEVM documentation](https://docs.zama.ai/protocol/solidity-guides/getting-started/setup#set-up-the-hardhat-configuration-variables-optional) to setup `MNEMONIC` + `INFURA_API_KEY` Hardhat environment variables
+**Use GitHub Codespaces**
 
-2. Start a local Hardhat node (new terminal):
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-```sh
-# Default RPC: http://127.0.0.1:8545  | chainId: 31337
-npm run hardhat-node
-```
+## What technologies are used for this project?
 
-3. Launch the frontend in mock mode:
+This project is built with:
 
-```sh
-npm run dev:mock
-```
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-4. Start your browser with the Metamask extension installed and open http://localhost:3000
+## How can I deploy this project?
 
-5. Open the Metamask extension to connect to the local Hardhat node
-   i. Select Add network.
-   ii. Select Add a network manually.
-   iii. Enter your Hardhat Network RPC URL, http://127.0.0.1:8545 (or http://localhost:8545).
-   iv. Enter your Hardhat Network chain ID, 31337 (or 0x539 in hexadecimal format).
+Simply open [Lovable](https://lovable.dev/projects/8b74f058-3967-46d6-94fe-fb208bc214e2) and click on Share -> Publish.
 
-## Run on Sepolia
+## Can I connect a custom domain to my Lovable project?
 
-1. Deploy your contract on Sepolia Testnet
+Yes, you can!
 
-```sh
-npm run deploy:sepolia
-```
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-2. In your browser open `http://localhost:3000`
-
-3. Open the Metamask extension to connect to the Sepolia network
-
-## How to fix Hardhat Node + Metamask Errors ?
-
-When using MetaMask as a wallet provider with a development node like Hardhat, you may encounter two common types of errors:
-
-### 1. ⚠️ Nonce Mismatch ❌💥
-
-MetaMask tracks wallet nonces (the number of transactions sent from a wallet). However, if you restart your Hardhat node, the nonce is reset on the dev node, but MetaMask does not update its internal nonce tracking. This discrepancy causes a nonce mismatch error.
-
-### 2. ⚠️ View Function Call Result Mismatch ❌💥
-
-MetaMask caches the results of view function calls. If you restart your Hardhat node, MetaMask may return outdated cached data corresponding to a previous instance of the node, leading to incorrect results.
-
-### ✅ How to Fix Nonce Mismatch:
-
-To fix the nonce mismatch error, simply clear the MetaMask cache:
-
-1. Open the MetaMask browser extension.
-2. Select the Hardhat network.
-3. Go to Settings > Advanced.
-4. Click the "Clear Activity Tab" red button to reset the nonce tracking.
-
-The correct way to do this is also explained [here](https://docs.metamask.io/wallet/how-to/run-devnet/).
-
-### ✅ How to Fix View Function Return Value Mismatch:
-
-To fix the view function result mismatch:
-
-1. Restart the entire browser. MetaMask stores its cache in the extension's memory, which cannot be cleared by simply clearing the browser cache or using MetaMask's built-in cache cleaning options.
-
-By following these steps, you can ensure that MetaMask syncs correctly with your Hardhat node and avoid potential issues related to nonces and cached view function results.
-
-## Project Structure Overview
-
-### Key Files/Folders
-
-- **`<root>/packages/site/fhevm`**: This folder contains the essential hooks needed to interact with FHEVM-enabled smart contracts. It is meant to be easily copied and integrated into any FHEVM + React project.
-
-- **`<root>/packages/site/hooks/useFHECounter.tsx`**: A simple React custom hook that demonstrates how to use the `useFhevm` hook in a basic use case, serving as an example of integration.
-
-### Secondary Files/Folders
-
-- **`<root>/packages/site/hooks/metamask`**: This folder includes hooks designed to manage the MetaMask Wallet provider. These hooks can be easily adapted or replaced to support other wallet providers, following the EIP-6963 standard,
-- Additionally, the project is designed to be flexible, allowing developers to easily replace `ethers.js` with a more React-friendly library of their choice, such as `Wagmi`.
-
-## Documentation
-
-- [Hardhat + MetaMask](https://docs.metamask.io/wallet/how-to/run-devnet/): Set up your local devnet step by step using Hardhat and MetaMask.
-- [FHEVM Documentation](https://docs.zama.ai/protocol/solidity-guides/)
-- [FHEVM Hardhat](https://docs.zama.ai/protocol/solidity-guides/development-guide/hardhat)
-- [@zama-fhe/relayer-sdk Documentation](https://docs.zama.ai/protocol/relayer-sdk-guides/)
-- [Setting up MNEMONIC and INFURA_API_KEY](https://docs.zama.ai/protocol/solidity-guides/getting-started/setup#set-up-the-hardhat-configuration-variables-optional)
-- [React Documentation](https://reactjs.org/)
-- [FHEVM Discord Community](https://discord.com/invite/zama)
-- [GitHub Issues](https://github.com/zama-ai/fhevm-react-template/issues)
-
-## License
-
-This project is licensed under the BSD-3-Clause-Clear License - see the LICENSE file for details.
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

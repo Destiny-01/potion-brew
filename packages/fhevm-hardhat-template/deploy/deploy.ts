@@ -9,7 +9,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const chainId = await hre.getChainId();
   const chainName = hre.network.name;
 
-  const contractName = "FHECounter";
+  const contractName = "PotionBrew";
   const deployed = await deploy(contractName, {
     from: deployer,
     log: true,
@@ -27,5 +27,5 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
 export default func;
 
-func.id = "deploy_fheCounter"; // id required to prevent reexecution
-func.tags = ["FHECounter"];
+func.id = "deploy_potion"; // id required to prevent reexecution
+func.tags = ["PotionBrew"];
