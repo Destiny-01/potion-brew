@@ -4,7 +4,7 @@ This is the boilerplate repo for the tutorial that teaches you how to build poti
 
 [Link to the tutorial](https://fhe-fun-tut.vercel.app)
 
-[Link to the repo of the tutorial](https://github.com/Destiny-01/fhe-tutorial) 
+[Link to the repo of the tutorial](https://github.com/Destiny-01/arcane-cipher-brew) 
 
 [Link to the repo of the completed live demo](https://github.com/Destiny-01/encrypted-brew-dash) 
 
