@@ -71,20 +71,6 @@ export function WalletButton() {
  *    - Disconnect button
  */
 function ConnectedWalletDisplay({ account }: { account: any }) {
-  // TODO: Use useAccount() to get wallet address
-  // TODO: Use useBalance() to fetch ETH balance
-  // TODO: Format address as "0x1234...5678"
-  // TODO: Format balance as "0.123 ETH"
-  
-  const { address } = useAccount();
-  const { data: balance } = useBalance({ address });
-
-  const formatAddress = (addr: string) =>
-    `${addr.slice(0, 6)}...${addr.slice(-4)}`;
-
-  const formatBalance = (bal: any) =>
-    bal ? `${parseFloat(bal.formatted).toFixed(3)} ${bal.symbol}` : "0.000 ETH";
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -126,15 +112,4 @@ function ConnectedWalletDisplay({ account }: { account: any }) {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-  
-  /* ORIGINAL CODE FOR DOCUMENTATION:
-  const { address } = useAccount();
-  const { data: balance } = useBalance({ address });
-
-  const formatAddress = (addr: string) =>
-    `${addr.slice(0, 6)}...${addr.slice(-4)}`;
-
-  const formatBalance = (bal: any) =>
-    bal ? `${parseFloat(bal.formatted).toFixed(3)} ${bal.symbol}` : "0.000 ETH";
-  */
 }
